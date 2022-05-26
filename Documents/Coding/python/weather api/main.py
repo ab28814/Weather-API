@@ -1,7 +1,8 @@
 import tkinter
+from turtle import bgcolor
 import requests
 import json
-from tkinter import *
+import tkinter
 from pprint import pprint
 
 API_KEY = 'bc50760d54528b10f34315f689817b3c'
@@ -9,9 +10,7 @@ API_KEY = 'bc50760d54528b10f34315f689817b3c'
 #city = input("Enter a city: ")
 # Grabbing weather data
 city = "Boston"
-
 base_url =  "http://api.openweathermap.org/data/2.5/weather?appid="+API_KEY+"&q="+city
-
 weather_data = requests.get(base_url).json()
 
 #pprint(weather_data)
@@ -23,11 +22,18 @@ pprint(data)
 images = [[],[],[],[],[],[]]
 
 # tkinter windows
-rt = Tk()
+rt = tkinter.Tk()
+rt.geometry("500x500")
+rt.config(bg='red')
+frame0 = tkinter.Frame(bg='green', height=250, width=250)
+
+label = tkinter.Label(frame0, text=data['coord'], wraplength=300)
+button = tkinter.Button(frame0, width=5, height=5)
+button.place(x=0, y=0)
+frame0.pack()
+
+
 # Displays weather
-label = Label(rt, text=data, wraplength=300)
 
 # Placements Locations
-label.pack()
-
 rt.mainloop()
