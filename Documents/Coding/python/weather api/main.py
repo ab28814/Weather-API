@@ -24,7 +24,10 @@ images = [[],[],[],[],[],[]]
 
 # tkinter windows
 rt = Tk()
+# Displays weather
 label = Label(rt, text=data, wraplength=300)
+
+# Placements Locations
 label.pack()
 
 rt.mainloop()
